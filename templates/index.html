@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Forex Converter {% endblock %}
+
+{% block content %}
+<h1>Forex Converter</h1>
+
+<form method="POST">
+   <label for="from_currency">Converting from:</label> 
+   <input type="text" id="from_currency" name="from_currency" placeholder="Enter Currency" required>
+
+   <label for="to_currency">Converting to:</label>
+   <input type="text" id="to_currency" name="to_currency" placeholder="Enter Currency" required>
+
+   <label for="amount">Amount:</label>
+   <input type="text" id="amount" name="amount" required>
+
+   <button type="submit">Convert</button>
+</form>
+
+{% if error_message %}
+   <p style="color: red;">{{ error_message }}</p>
+{% endif %}
+
+{% if conversion_result %}
+   <p>Conversion Result: {{ conversion_result }}</p>
+{% endif %}
+{% endblock %}
